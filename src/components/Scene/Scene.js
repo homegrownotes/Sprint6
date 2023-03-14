@@ -1,12 +1,12 @@
-import React from "react";
-import {Border} from "../../styled";
+import { Border } from "../../styled";
 
-function Scene(props) {
-	return (
-		<p><Border>{props.text}</Border></p>
-	)		
-};
+function Scene({ text, id, position }) { // Add the props: id and position.
+  return (
+    <div>
+      <Border active={position === id ? true : false}> 
+      {text}</Border> 
+    </div> // Render "buttons" also.
+  );
+}
 
 export default Scene;
-
-// Function Scene receives "text" from function App and shows them.
