@@ -1,8 +1,9 @@
 import React from "react";
+import {Border} from "../../styled";
 
 function Scene(props) {
 	return (
-		<p>{props.text}</p>
+		<p><Border>{props.text}</Border></p>
 	)		
 };
 
