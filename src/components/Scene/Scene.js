@@ -1,11 +1,11 @@
 import React from "react";
 
-function Scene() {
+function Scene(props) {
 	return (
-		<div className="container">
-			<p className="text">El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial</p>
-		</div>
-	);
-}
+		<p>{props.text}</p>
+	)		
+};
 
 export default Scene;
+
+// Function Scene receives "text" from function App and shows them.
