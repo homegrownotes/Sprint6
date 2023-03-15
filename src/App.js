@@ -2,10 +2,12 @@ import React, { useState } from "react"; // Import "useState".
 import "./App.css";
 import Scene from "./components/Scene/Scene.js";
 import data from "./Data.js";
-import { Button } from "./styled.js"; // Import "Button".
+import { Button, ButtonStart, WelcomeP, WelcomeTitle } from "./styled.js"; // Import "Button".
 
 function App() {
   const [position, setPosition] = useState(1);
+  const [showWelcomeScreen, setShowWelcomeScreen] = useState(true); // Add an "state variable" to display  "Welcome screen".
+
   function goNext() { // Declare the function "goNext".
     if (position < data.length) { // If the position number is less than the total number of contents...
       setPosition(position + 1); // Add "position" to the following content.
@@ -24,20 +26,38 @@ function App() {
     }
   }
 
+  function handleStartButtonClick() { // Add event handler to hide Welcome screen.
+    setShowWelcomeScreen(false);
+  }
+
   return (
     <>
-      <div>
-        <Button onClick={() => goBack()}>Anterior</Button>
-        <Button onClick={() => goNext()}>Següent</Button>
-      </div>
+      {showWelcomeScreen === true ?
+        ( // Adding condition to show "WeLcome Screen".
+          <div>
+            <WelcomeTitle>Benvingut a la història interactiva</WelcomeTitle >
+            <WelcomeP>Recorre la història del nostre protagonista a través dels dos botons interactius “Anterior” i “Següent”. ¿Preparat? Donçs comença...😀</WelcomeP>
+            <ButtonStart onClick={handleStartButtonClick}>Començar</ButtonStart>
+          </div>
+        ) : (
+          <>
+            <div>
+              <Button onClick={() => goBack()}>Anterior</Button>
+              <Button onClick={() => goNext()}>Següent</  Button>
+            </div>
 
-      <div>
-        {data && data.map(e => (
-          <Scene key={e.id} id={e.id} // Create the ID prop from the id of the object place at "data array" to send it to the "Scene component" =>>> *** It seems that "key" is reserved to React ***.
-            text={e.content} position={position} // Create the POSITION prop with the position info to send it to the "Scene component". *** Required to create the "useState". ***
-          />
-        ))}
-      </div>
+            <div>
+              {data && data.map(e => (
+                <Scene
+                  key={e.id}
+                  id={e.id} // Create the ID prop from the id of the object place at "data array" to   send it to the "Scene component" =>>> *** It seems that "key" is reserved to React ***.
+                  text={e.content}
+                  position={position} // Create the POSITION prop with the position info to send it to the "Scene component". *** Required to create the "useState". ***
+                />
+              ))}
+            </div>
+          </>
+        )}
     </>
   );
 }

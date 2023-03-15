@@ -16,7 +16,7 @@ export const Border = styled.p`
 export const Button = styled.p`
     height: 30px;
     width: 44%;
-    border-style: solid;
+    border-style: solid;    
     border-width: 1px;
     border-radius: 1px;
     background-color: #b5b2b2;
@@ -31,6 +31,52 @@ export const Button = styled.p`
     text-decoration: none;
     justify-content: center;
     display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+`;
+
+export const WelcomeTitle = styled.h1`
+margin: 50px;
+color: rgba(236, 105, 172, 0.8);
+margin-left: 25%;
+margin-right: 25%;
+padding: 15px 32px;
+display: flex;
+text-align: center;
+justify-content: center;
+display: inline-block;
+font-size: 50px;
+justify: center;
+`; 
+
+export const WelcomeP = styled.h3`
+  color: rgba(51, 41, 46, 0.8);
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Arial;
+  justify: center;
+`;
+
+export const ButtonStart = styled.p`
+    height: 30px;
+    width: 100px;
+    border-style: solid;    
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: #b5b2b2;
+    color: black;
+    margin: 0 auto; 
+    padding: 1px;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
